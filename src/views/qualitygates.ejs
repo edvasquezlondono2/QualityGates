@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            QUALITY GATES
+        </title>
+        <link rel="stylesheet" 
+        href="https://bootswatch.com/4/materia/bootstrap.min.css">
+    </head>
+    <body>
+            <nav class="navbar navbar-dark bg-dark">
+             <div class="col-lg-12" style="text-align:center">                   
+                   <a href="/" class="navbar-brand">DATOS DE ENTRADA QUALITY</a>
+                </div>
+            </nav>
+            <form action="/add" method="post">
+
+                <h1 style="font-size:180%;" class="">Información del proyecto:</h1>          
+                <div class="form-group">
+                    <input type="number" name="ID" placeholder="ID DEL PROYECTO" class="form-control" style="text-align:center">
+                </div>       
+                <div class="form-group">
+                    <input type="text" name="NOMBREPROYECTO" placeholder="NOMBRE DEL PROYECTO" class="form-control" style="text-align:center">
+                </div>
+
+                <h1 style="font-size:180%;">Funcionalidad:</h1>
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_CRITERIOS" placeholder="# CRITERIOS DE ACEPTACIÓN" class="form-control" style="text-align:center">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_CRITERIOS_APROBADOS" placeholder="# CRITERIOS DE ACEPTACIÓN APROBADOS" class="form-control" style="text-align:center">
+                </div>       
+                
+                <h1 style="font-size:180%;">Fiabilidad / Confiabilidad:</h1>
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_ENDPOINTS" placeholder="# ENDPOINTS" class="form-control" style="text-align:center">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_ENDPOINTS_APROBADOS" placeholder="# DE ENDPOINT BIEN DOCUMENTADOS" class="form-control" style="text-align:center">
+                </div>  
+
+                <h1 style="font-size:180%;">Mantenibilidad:</h1>
+
+                <div class="form-group">
+                    <input type="number" name="COD_DUPLICADO" placeholder="% CODIGO DUPLICADO" class="form-control" style="text-align:center">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="COBERTURA" placeholder="% COBERTURA" class="form-control" style="text-align:center">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="ERRORES" placeholder="# ERRORES REPORTADOS" class="form-control" style="text-align:center">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="CODESMELLS" placeholder="# CODE SMELLS" class="form-control" style="text-align:center">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="VULNERABILIDADES" placeholder="# VULNERABILIDADES" class="form-control" style="text-align:center">
+                </div>
+
+                <h1 style="font-size:180%;">Performance:</h1>
+
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_ENDPOINTS_TIEMPOSOK" placeholder="# ENDPOINTS CON UN TIEMPO PROMEDIO DE RESPUESTA MENOR O IGUAL A 5 SEGUNDOS" class="form-control" style="text-align:center">
+                </div>
+                <div style="text-align:center">
+                <button type="submit" class="btn btn-info mb-2" style="text-align:center" >Guardar</button>                              
+                </div>
+            </form>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+         <tr>
+            <th>N°</th>
+            <th>ID</th>
+            <th>NOMBRE DEL PROYECTO</th>
+            <th># CRITERIOS</th>
+            <th># CRITERIOS APROBADOS</th>
+            <th># ENDPOINTS</th>
+            <th># ENDPOINTS APROBADOS</th>
+            <th>% CODIGO DUPLICADO</th>
+            <th>% COBERTURA</th>
+            <th>ERRORES</th>
+            <th>CODESMELLS</th>
+            <th>VULNERABILIDADES</th>
+            <th># ENDPOINTS TIEMPOS ACEPTABLES</th>         
+            <th>ACCIONES</th>
+         </tr>
+        </thead>
+        <tbody>
+            <% if (data) { %>
+               <% for (var i=0; i<data.length; i++) { %>
+                   <tr>
+                       <td><%=(i+1)%></td>
+                       <td><%=data[i].ID%></td>
+                       <td><%=data[i].NOMBREPROYECTO%></td>
+                       <td><%=data[i].CANTIDAD_CRITERIOS%></td>
+                       <td><%=data[i].CANTIDAD_CRITERIOS_APROBADOS%></td>
+                       <td><%=data[i].CANTIDAD_ENDPOINTS%></td>
+                       <td><%=data[i].CANTIDAD_ENDPOINTS_APROBADOS%></td>
+                       <td><%=data[i].COD_DUPLICADO%></td>
+                       <td><%=data[i].COBERTURA%></td>
+                       <td><%=data[i].ERRORES%></td>
+                       <td><%=data[i].CODESMELLS%></td>
+                       <td><%=data[i].VULNERABILIDADES%></td>
+                       <td><%=data[i].CANTIDAD_ENDPOINTS_TIEMPOSOK%></td>
+                       <td> <a href="/delete/<%=data[i].ID%>" class="btn btn-danger">Delete</a></td>
+                   </tr>
+               <% } %>
+            <% } %>
+        </tbody>
+    </table>
+        </body>
+</html>

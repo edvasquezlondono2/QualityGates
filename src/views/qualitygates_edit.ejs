@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            QUALITY GATES
+        </title>
+        <link rel="stylesheet" 
+        href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    </head>
+    <body>
+            <nav class="navbar navbar-dark bg-dark">
+             <a href="/" class="navbar-brand"> quality - gates</a>
+            </nav>
+            <h1>QUALITY</h1>
+            <form action="/add" method="post">
+                <div class="form-group">
+                    <input type="number" name="ID" placeholder="ID DEL PROYECTO" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_CRITERIOS" placeholder="CANTIDAD CRITERIOS DE ACEPTACIÓN" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_CRITERIOS_APROBADOS" placeholder="CANTIDAD CRITERIOS DE ACEPTACIÓN APROBADOS" class="form-control">
+                </div>       
+                
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_ENDPOINTS" placeholder="CANTIDAD ENDPOINTS" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_ENDPOINTS_APROBADOS" placeholder="CANTIDAD DE ENDPOINT BIEN DOCUMENTADOS" class="form-control">
+                </div>  
+
+                <div class="col-sm-10">
+                    <label>  EXISTE GRAFICO PROCESO SOPORTE:</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="SI" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        SI
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="NO">
+                      <label class="form-check-label" for="gridRadios2">
+                        NO
+                      </label>
+                    </div>
+                </div>
+            
+
+                <div class="form-group">
+                    <input type="number" name="COD_DUPLICADO" placeholder="% CODIGO DUPLICADO" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="COBERTURA" placeholder="% COBERTURA" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="CODESMELLS" placeholder="# CODE SMELLS" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary" >Guardar Quality Gates</button>                              
+            </form>
+    <table class="table table-bordered table-hover">
+        <thead></thead>
+        <tr>
+            <th>N°</th>
+            <th>COD_DUPLICADO</th>
+            <th>COBERTURA</th>
+            <th>CODESMELLS</th>
+            <th>ACCIONES</th>
+        </tr>
+        <tbody>
+            <% if (data) { %>
+               <% for (var i=0; i<data.length; i++) { %>
+                   <tr>
+                       <td><%=(i+1)%></td>
+                       <td><%=data[i].ID%></td>
+                       <td><%=data[i].CANTIDAD_CRITERIOS%></td>
+                       <td><%=data[i].CANTIDAD_CRITERIOS_APROBADOS%></td>
+                       <td><%=data[i].CANTIDAD_ENDPOINTS%></td>
+                       <td><%=data[i].CANTIDAD_ENDPOINTS_APROBADOS%></td>
+                       <td><%=data[i].COD_DUPLICADO%></td>
+                       <td><%=data[i].COBERTURA%></td>
+                       <td><%=data[i].CODESMELLS%></td>
+                       <td> <a href="/delete/<%=data[i].ID%>" class="btn btn-danger">Delete</a></td>
+                   </tr>
+               <% } %>
+            <% } %>
+        </tbody>
+
+    </table>
+</body>
+</html>
