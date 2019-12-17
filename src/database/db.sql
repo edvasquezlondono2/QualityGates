@@ -24,6 +24,7 @@ create table crudnodejsmysql.qualitygates(
     CANTIDAD_CRITERIOS_APROBADOS FLOAT(6),
     CANTIDAD_ENDPOINTS FLOAT(6),
     CANTIDAD_ENDPOINTS_APROBADOS FLOAT(6),
+    CANTIDAD_LINEAS_CODIGO FLOAT(6),
     COD_DUPLICADO FLOAT(6),
     COBERTURA FLOAT(6),
     ERRORES FLOAT(6),
@@ -34,7 +35,10 @@ create table crudnodejsmysql.qualitygates(
 
 create table crudnodejsmysql.qualitygatescalc(
     ID FLOAT(6),
-    QG_CRITERIOS FLOAT(6)
+    QG_CRITERIOS FLOAT(6),
+    QG_ENDPOINTS FLOAT(6),
+    QG_ERRORES FLOAT(6),
+    QG_CODESMELLS FLOAT(6)
      );
 
 

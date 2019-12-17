@@ -11,12 +11,11 @@
     <body>
             <nav class="navbar navbar-dark bg-dark">
              <div class="col-lg-12" style="text-align:center">                   
-                   <a href="/" class="navbar-brand">DATOS DE ENTRADA QUALITY</a>
+                   <a href="/" class="navbar-brand">REGISTRO DE QUALITY GATES</a>
                 </div>
             </nav>
             <form action="/add" method="post">
-
-                <h1 style="font-size:180%;" class="">Información del proyecto:</h1>          
+                <h1 style="font-size:180%;" class="card-text">Información del proyecto:</h1>          
                 <div class="form-group">
                     <input type="number" name="ID" placeholder="ID DEL PROYECTO" class="form-control" style="text-align:center">
                 </div>       
@@ -43,6 +42,10 @@
                 </div>  
 
                 <h1 style="font-size:180%;">Mantenibilidad:</h1>
+
+                <div class="form-group">
+                    <input type="number" name="CANTIDAD_LINEAS_CODIGO" placeholder="# LINEAS DE CODIGO" class="form-control" style="text-align:center">
+                </div>
 
                 <div class="form-group">
                     <input type="number" name="COD_DUPLICADO" placeholder="% CODIGO DUPLICADO" class="form-control" style="text-align:center">
@@ -84,6 +87,7 @@
             <th># CRITERIOS APROBADOS</th>
             <th># ENDPOINTS</th>
             <th># ENDPOINTS APROBADOS</th>
+            <th># LINEAS CODIGO</th>
             <th>% CODIGO DUPLICADO</th>
             <th>% COBERTURA</th>
             <th>ERRORES</th>
@@ -104,13 +108,18 @@
                        <td><%=data[i].CANTIDAD_CRITERIOS_APROBADOS%></td>
                        <td><%=data[i].CANTIDAD_ENDPOINTS%></td>
                        <td><%=data[i].CANTIDAD_ENDPOINTS_APROBADOS%></td>
+                       <td><%=data[i].CANTIDAD_LINEAS_CODIGO%></td>
                        <td><%=data[i].COD_DUPLICADO%></td>
                        <td><%=data[i].COBERTURA%></td>
                        <td><%=data[i].ERRORES%></td>
                        <td><%=data[i].CODESMELLS%></td>
                        <td><%=data[i].VULNERABILIDADES%></td>
                        <td><%=data[i].CANTIDAD_ENDPOINTS_TIEMPOSOK%></td>
-                       <td> <a href="/delete/<%=data[i].ID%>" class="btn btn-danger">Delete</a></td>
+                       <td> 
+                        <a href="/update/<%=data[i].ID%>" class="btn btn-info">Actualizar</a>
+                        <a style="color:white;">_____</a>
+                        <a href="/delete/<%=data[i].ID%>" class="btn btn-danger">Eliminar</a>
+                       </td>
                    </tr>
                <% } %>
             <% } %>
