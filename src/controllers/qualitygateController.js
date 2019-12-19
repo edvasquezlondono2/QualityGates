@@ -7,6 +7,9 @@ controller.list = (req,res) => {
     return qualityModel.list(req,res);
 };
 
+controller.results = (req,res) => {
+    return qualityModel.results(req,res);
+};
 controller.save = (req,res) => {
   qualityModel.save(req);
   res.redirect('/');
@@ -25,8 +28,10 @@ controller.save = (req,res) => {
 
   var CANTIDADCODESMELLS =(parseFloat(req.body.CODESMELLS));
   var QG_CODESMELLS=(1-(CANTIDADCODESMELLS-(CANTIDADLINEASCODIGO/500))*CANTIDADCODESMELLS*0,0001)*100
-  
-  qualityModel.saveqg(req,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS)
+ 
+  var NOMBREPROYECTO =(req.body.NOMBREPROYECTO); 
+
+  qualityModel.saveqg(req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS)
 };
 
 controller.edit = (req,res) => {
@@ -36,6 +41,11 @@ controller.edit = (req,res) => {
 controller.update = (req,res) => {
   return qualityModel.update(req,res);
 };
+
+controller.detail = (req,res) => {
+  return qualityModel.detail(req,res);
+};
+
 
 controller.delete = (req,res) => {
 

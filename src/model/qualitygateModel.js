@@ -8,11 +8,11 @@ model.save = (req) => {
    });
 };
 
-model.saveqg = (req,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS) => {
+model.saveqg = (req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS) => {
   const ID = req.body.ID
-
+console.log(req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS);
     req.getConnection((err,conn)=>{
-  var querybuilder = 'insert into qualitygatescalc (ID,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS) values (?,'+QG_CRITERIOS+','+QG_ENDPOINTS+','+QG_ERRORES+','+QG_CODESMELLS+');'
+  var querybuilder = 'insert into qualitygatescalc (ID,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS) values (?,"'+NOMBREPROYECTO+'",'+QG_CRITERIOS+','+QG_ENDPOINTS+','+QG_ERRORES+','+QG_CODESMELLS+');'
   conn.query(querybuilder,[ID],(err,rows)=>{
 
        });
@@ -54,6 +54,32 @@ model.update = (req,res) => {
 
 
 model.list = (req,res) => {
+  return new Promise((resolve, reject) => {
+    req.getConnection((err,conn)=>{
+      return conn.query('select * from qualitygates',(err,rows)=>{
+           if (err){
+              reject(err);
+           }
+          resolve(rows);
+       });
+   });
+  })
+};
+
+model.results = (req,res) => {
+  return new Promise((resolve, reject) => {
+    req.getConnection((err,conn)=>{
+      return conn.query('select * from qualitygatescalc',(err,rows)=>{
+           if (err){
+              reject(err);
+           }
+          resolve(rows);
+       });
+   });
+  })
+};
+
+model.detail = (req,res) => {
   return new Promise((resolve, reject) => {
     req.getConnection((err,conn)=>{
       return conn.query('select * from qualitygates',(err,rows)=>{

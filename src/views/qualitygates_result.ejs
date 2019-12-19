@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/detail">Conocer los Quality Gates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Administrar Quality Gates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/result">Resultados Quality Gates</a>
+                </li>
+              </div>
+            </div>      
+        </nav>
+        <link rel="stylesheet" 
+        href="https://bootswatch.com/4/materia/bootstrap.min.css">
+     </head>
+    <body>
+    <h1 style="font-size:100%;">Los Quality Gates son puntos en el curso de un proyecto de desarrollo, en los que se toman decisiones sobre el lanzamiento del siguiente paso del proyecto en función de criterios de calidad claramente definidos.</h1>
+    
+     <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+         <tr>
+            <th>N°</th>
+            <th>ID</th>
+            <th>NOMBRE DEL PROYECTO</th>  
+            <th>QG CRITERIOS</th>    
+            <th>QG ENDPOINTS</th> 
+            <th>QG ERRORES</th> 
+            <th>QG CODESMELLS</th>
+         </tr>
+        </thead>
+        <tbody>
+            <% if (data) { %>
+               <% for (var i=0; i<data.length; i++) { %>
+                   <tr>
+                       <td><%=(i+1)%></td>
+                       <td><%=data[i].ID%></td>
+                       <td><%=data[i].NOMBREPROYECTO%></td>
+                       <td><%=data[i].QG_CRITERIOS%></td>
+                       <td><%=data[i].QG_ENDPOINTS%></td>
+                       <td><%=data[i].QG_ERRORES%></td>
+                       <td><%=data[i].QG_CODESMELLS%></td>
+                   </tr>
+               <% } %>
+            <% } %>
+        </tbody>
+     </table>
+    </body>
+</html>

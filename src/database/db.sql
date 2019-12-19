@@ -35,6 +35,7 @@ create table crudnodejsmysql.qualitygates(
 
 create table crudnodejsmysql.qualitygatescalc(
     ID FLOAT(6),
+    NOMBREPROYECTO VARCHAR (30),
     QG_CRITERIOS FLOAT(6),
     QG_ENDPOINTS FLOAT(6),
     QG_ERRORES FLOAT(6),

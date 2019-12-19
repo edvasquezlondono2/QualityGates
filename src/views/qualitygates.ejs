@@ -2,20 +2,31 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>
-            QUALITY GATES
-        </title>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/detail">Conocer los Quality Gates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Administrar Quality Gates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/result">Resultados Quality Gates</a>
+                </li>
+              </div>
+            </div>      
+          </nav>
         <link rel="stylesheet" 
         href="https://bootswatch.com/4/materia/bootstrap.min.css">
-    </head>
+     </head>
     <body>
-            <nav class="navbar navbar-dark bg-dark">
-             <div class="col-lg-12" style="text-align:center">                   
-                   <a href="/" class="navbar-brand">REGISTRO DE QUALITY GATES</a>
-                </div>
-            </nav>
-            <form action="/add" method="post">
-                <h1 style="font-size:180%;" class="card-text">Información del proyecto:</h1>          
+    <h1 style="font-size:100%;">Los Quality Gates son puntos en el curso de un proyecto de desarrollo, en los que se toman decisiones sobre el lanzamiento del siguiente paso del proyecto en función de criterios de calidad claramente definidos.</h1>
+             <form action="/add" method="post">    
+                <h1 style="font-size:150%;" class="card-text">Información del proyecto:</h1>          
                 <div class="form-group">
                     <input type="number" name="ID" placeholder="ID DEL PROYECTO" class="form-control" style="text-align:center">
                 </div>       
@@ -23,7 +34,7 @@
                     <input type="text" name="NOMBREPROYECTO" placeholder="NOMBRE DEL PROYECTO" class="form-control" style="text-align:center">
                 </div>
 
-                <h1 style="font-size:180%;">Funcionalidad:</h1>
+                <h1 style="font-size:150%;">Funcionalidad:</h1>
                 <div class="form-group">
                     <input type="number" name="CANTIDAD_CRITERIOS" placeholder="# CRITERIOS DE ACEPTACIÓN" class="form-control" style="text-align:center">
                 </div>
@@ -32,7 +43,7 @@
                     <input type="number" name="CANTIDAD_CRITERIOS_APROBADOS" placeholder="# CRITERIOS DE ACEPTACIÓN APROBADOS" class="form-control" style="text-align:center">
                 </div>       
                 
-                <h1 style="font-size:180%;">Fiabilidad / Confiabilidad:</h1>
+                <h1 style="font-size:150%;">Fiabilidad / Confiabilidad:</h1>
                 <div class="form-group">
                     <input type="number" name="CANTIDAD_ENDPOINTS" placeholder="# ENDPOINTS" class="form-control" style="text-align:center">
                 </div>
@@ -41,7 +52,7 @@
                     <input type="number" name="CANTIDAD_ENDPOINTS_APROBADOS" placeholder="# DE ENDPOINT BIEN DOCUMENTADOS" class="form-control" style="text-align:center">
                 </div>  
 
-                <h1 style="font-size:180%;">Mantenibilidad:</h1>
+                <h1 style="font-size:150%;">Mantenibilidad:</h1>
 
                 <div class="form-group">
                     <input type="number" name="CANTIDAD_LINEAS_CODIGO" placeholder="# LINEAS DE CODIGO" class="form-control" style="text-align:center">
@@ -67,13 +78,15 @@
                     <input type="number" name="VULNERABILIDADES" placeholder="# VULNERABILIDADES" class="form-control" style="text-align:center">
                 </div>
 
-                <h1 style="font-size:180%;">Performance:</h1>
+                <h1 style="font-size:150%;">Performance:</h1>
 
                 <div class="form-group">
                     <input type="number" name="CANTIDAD_ENDPOINTS_TIEMPOSOK" placeholder="# ENDPOINTS CON UN TIEMPO PROMEDIO DE RESPUESTA MENOR O IGUAL A 5 SEGUNDOS" class="form-control" style="text-align:center">
                 </div>
                 <div style="text-align:center">
-                <button type="submit" class="btn btn-info mb-2" style="text-align:center" >Guardar</button>                              
+                <button type="submit" class="btn btn-info mb-2" style="text-align:center" >Guardar</button>  
+                <a style="color:white; line-break">_____</a>
+                <a href="/result" class="btn btn-info mb-2">Resultados de los Quality Gates</a>                            
                 </div>
             </form>
 
