@@ -12,6 +12,9 @@
                     <a class="nav-link" href="/detail">Conocer los Quality Gates</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/config">Configuración % Quality Gates</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/">Administrar Quality Gates</a>
                 </li>
                 <li class="nav-item">
@@ -25,70 +28,138 @@
      </head>
     <body>
     <h1 style="font-size:100%;">Los Quality Gates son puntos en el curso de un proyecto de desarrollo, en los que se toman decisiones sobre el lanzamiento del siguiente paso del proyecto en función de criterios de calidad claramente definidos.</h1>
-             <form action="/add" method="post">    
-                <h1 style="font-size:150%;" class="card-text">Información del proyecto:</h1>          
-                <div class="form-group">
-                    <input type="number" name="ID" placeholder="ID DEL PROYECTO" class="form-control" style="text-align:center">
-                </div>       
-                <div class="form-group">
-                    <input type="text" name="NOMBREPROYECTO" placeholder="NOMBRE DEL PROYECTO" class="form-control" style="text-align:center">
-                </div>
 
-                <h1 style="font-size:150%;">Funcionalidad:</h1>
-                <div class="form-group">
-                    <input type="number" name="CANTIDAD_CRITERIOS" placeholder="# CRITERIOS DE ACEPTACIÓN" class="form-control" style="text-align:center">
-                </div>
+                  
+<div class="container">
+    <h2>Atributos de calidad:</h2>
+<form action="/add" method="post" style="text-align:center">
+       <div class="container">
+         <h2>Atributos de calidad:</h2>
+            <table class="table table-bordered">
 
-                <div class="form-group">
-                    <input type="number" name="CANTIDAD_CRITERIOS_APROBADOS" placeholder="# CRITERIOS DE ACEPTACIÓN APROBADOS" class="form-control" style="text-align:center">
-                </div>       
-                
-                <h1 style="font-size:150%;">Fiabilidad / Confiabilidad:</h1>
-                <div class="form-group">
-                    <input type="number" name="CANTIDAD_ENDPOINTS" placeholder="# ENDPOINTS" class="form-control" style="text-align:center">
-                </div>
+                <thead>
+                    <tr>
+                    <th>Item</th>
+                    <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>                                         
+                    <tr>
+                        <td><h5>ID DEL PROYECTO:</h5></td>   
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="ID" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                                        
+                    <tr>
+                        <td><h5>NOMBRE DEL PROYECTO:</h5></td>   
+                        <td>
+                            <div class="md-form form-group" style="text-align:center">
+                                <select class="mdb-select validate md-form" style="text-align:center" name="NOMBREPROYECTO">
+                                <option value="" >Selecciona el proyecto....</option>
+                                <option value="Novedades">Novedades</option>
+                                <option value="Docuware">Docuware</option>
+                                <option value="Sigo">Sigo</option>
+                                <option value="Geo">Geo</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
 
-                <div class="form-group">
-                    <input type="number" name="CANTIDAD_ENDPOINTS_APROBADOS" placeholder="# DE ENDPOINT BIEN DOCUMENTADOS" class="form-control" style="text-align:center">
-                </div>  
+                    <tr>
+                        <td><h5># CRITERIOS:</h5></td>   
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="CANTIDAD_CRITERIOS" class="form-control" style="text-align:center" placeholder="#">
 
-                <h1 style="font-size:150%;">Mantenibilidad:</h1>
+                        </div>
+                        </td>
+                    </tr>
 
-                <div class="form-group">
-                    <input type="number" name="CANTIDAD_LINEAS_CODIGO" placeholder="# LINEAS DE CODIGO" class="form-control" style="text-align:center">
-                </div>
+                    <tr>
+                        <td><h5># CRITERIOS APROBADOS:</h5></td>   
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="CANTIDAD_CRITERIOS_APROBADOS" class="form-control" style="text-align:center" placeholder="#">
 
-                <div class="form-group">
-                    <input type="number" name="COD_DUPLICADO" placeholder="% CODIGO DUPLICADO" class="form-control" style="text-align:center">
-                </div>
+                        </div>
+                        </td>
+                    </tr>
 
-                <div class="form-group">
-                    <input type="number" name="COBERTURA" placeholder="% COBERTURA" class="form-control" style="text-align:center">
-                </div>
-
-                <div class="form-group">
-                    <input type="number" name="ERRORES" placeholder="# ERRORES REPORTADOS" class="form-control" style="text-align:center">
-                </div>
-
-                <div class="form-group">
-                    <input type="number" name="CODESMELLS" placeholder="# CODE SMELLS" class="form-control" style="text-align:center">
-                </div>
-
-                <div class="form-group">
-                    <input type="number" name="VULNERABILIDADES" placeholder="# VULNERABILIDADES" class="form-control" style="text-align:center">
-                </div>
-
-                <h1 style="font-size:150%;">Performance:</h1>
-
-                <div class="form-group">
-                    <input type="number" name="CANTIDAD_ENDPOINTS_TIEMPOSOK" placeholder="# ENDPOINTS CON UN TIEMPO PROMEDIO DE RESPUESTA MENOR O IGUAL A 5 SEGUNDOS" class="form-control" style="text-align:center">
-                </div>
-                <div style="text-align:center">
-                <button type="submit" class="btn btn-info mb-2" style="text-align:center" >Guardar</button>  
-                <a style="color:white; line-break">_____</a>
-                <a href="/result" class="btn btn-info mb-2">Resultados de los Quality Gates</a>                            
-                </div>
-            </form>
+                    <tr>
+                        <td><h5># ENDPOINTS:</h5></td>   
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="CANTIDAD_ENDPOINTS" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                                    
+                    <tr>
+                        <td><h5># DE ENDPOINT BIEN DOCUMENTADOS:</h5></td>    
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="CANTIDAD_ENDPOINTS_APROBADOS" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                                    
+                    <tr>
+                        <td><h5>% CODIGO DUPLICADO:</h5></td>  
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name = "COD_DUPLICADO" class="form-control" id="COD_DUPLICADO" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h5>% COBERTURA:</h5></td>  
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="COBERTURA" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h5># ERRORES REPORTADOS:</h5></td>  
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="ERRORES" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h5># CODE SMELLS:</h5></td>  
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="CODESMELLS" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h5># VULNERABILIDADES:</h5></td>  
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="VULNERABILIDADES" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h5># ENDPOINTS CON UN TIEMPO PROMEDIO DE RESPUESTA MENOR O IGUAL A 5 SEGUNDOS:</h5></td>  
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="CANTIDAD_ENDPOINTS_TIEMPOSOK" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+       <div style="text-align:center">
+            <button type="submit" class="btn btn-info mb-2" style="text-align:center" >Guardar</button>  
+       </div>
+</form>
 
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">

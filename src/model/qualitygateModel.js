@@ -8,6 +8,14 @@ model.save = (req) => {
    });
 };
 
+model.addPercent = (req) => {
+  const data= req.body;
+    req.getConnection((err,conn)=>{
+       conn.query('insert into qualitygatespercent set ?',[data],(err,rows)=>{
+       });
+   });
+};
+
 model.saveqg = (req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS) => {
   const ID = req.body.ID
 console.log(req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS);
@@ -57,6 +65,19 @@ model.list = (req,res) => {
   return new Promise((resolve, reject) => {
     req.getConnection((err,conn)=>{
       return conn.query('select * from qualitygates',(err,rows)=>{
+           if (err){
+              reject(err);
+           }
+          resolve(rows);
+       });
+   });
+  })
+};
+
+model.config = (req,res) => {
+  return new Promise((resolve, reject) => {
+    req.getConnection((err,conn)=>{
+      return conn.query('select * from qualitygatespercent',(err,rows)=>{
            if (err){
               reject(err);
            }

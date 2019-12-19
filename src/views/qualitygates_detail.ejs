@@ -12,6 +12,9 @@
                     <a class="nav-link" href="/detail">Conocer los Quality Gates</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/config">Configuración % Quality Gates</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/">Administrar Quality Gates</a>
                 </li>
                 <li class="nav-item">
@@ -20,88 +23,30 @@
               </div>
             </div>      
           </nav>
-        <link rel="stylesheet" 
+    <h1 style="font-size:95%;">Los Quality Gates son puntos en el curso de un proyecto de desarrollo, en los que se toman decisiones sobre el lanzamiento del siguiente paso del proyecto en función de criterios de calidad claramente definidos.</h1>     
+          <a href="http://mpiua.invid.udl.cat/usabilidad/atributo-de-la-calidad-del-software/">
+            <img src="http://mpiua.invid.udl.cat/wp-content/uploads/2014/07/SoftwareQuality_cas-1024x493.jpg" alt="Lights" style="width:100%">
+            <div class="caption">
+              <p style="text-align:center">Cibergrafia..</p>
+            </div>
+          </a>
+
+        <link rel="stylesheet"
         href="https://bootswatch.com/4/materia/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
      </head>
     <body>
-<!--Blue select-->
-<a style="color:white;">_____</a>
-<form class="needs-validation" novalidate style="text-align:center">
-    <select class="mdb-select validate md-form" style="text-align:center">
-      <option value="" >Selecciona el proyecto....</option>
-      <option value="1">Novedades</option>
-      <option value="2">Docuware</option>
-      <option value="3">Sigo</option>
-      <option value="5">Geo</option>
-    </select>
-  </form>
-  <!--/Blue select-->                   
-        <div class="container">
-            <h2>Atributos de calidad:</h2>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                    <th>Atributo</th>
-                    <th>Porcentaje</th>
-                    </tr>
-                </thead>
-                <tbody>                                         
-                    <tr>
-                        <td><h5>FUNCIONALIDAD</h5></td>   
-                        <td>
-                           <div class="md-form form-group">
-                               <input type="number" name = "PERCENT_FUNCIONALIDAD" class="form-control" id="PERCENT_FUNCIONALIDAD" placeholder="%">
-                           </div>
-                        </td>
-                    </tr>
-                                        
-                    <tr>
-                        <td><h5>FIABILIDAD / CONFIABILIDAD</h5></td>   
-                        <td>
-                           <div class="md-form form-group">
-                               <input type="number" name = "PERCENT_CONFIABILIDAD" class="form-control" id="PERCENT_CONFIABILIDAD" placeholder="%">
-                           </div>
-                        </td>
-                    </tr>
-                                    
-                    <tr>
-                        <td><h5>MANTENIBILIDAD</h5></td>   
-                        <td>
-                           <div class="md-form form-group">
-                               <input type="number" name = "PERCENT_MANTENIBILIDAD" class="form-control" id="PERCENT_MANTENIBILIDAD" placeholder="%">
-                           </div>
-                        </td>
-                    </tr>
-                                       
-                    <tr>
-                        <td><h5>RENDIMIENTO/EFICIENCIA</h5></td>    
-                        <td>
-                           <div class="md-form form-group">
-                               <input type="number" name = "PERCENT_PERFORMANCE" class="form-control" id="PERCENT_PERFORMANCE" placeholder="%">
-                           </div>
-                        </td>
-                    </tr>
-                                      
-                    <tr>
-                        <td><h5>PORTABILIDAD</h5></td>  
-                        <td>
-                           <div class="md-form form-group">
-                               <input type="number" name = "PERCENT_PORTABILIDAD" class="form-control" id="PERCENT_PORTABILIDAD" placeholder="%">
-                           </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
     <div class="container">
         <h2>Funcionalidad:</h2>
+        <p>Funcionalidad:  Se refiere a la capacidad del producto de software para suministrar un conjunto de funciones que satisfagan las necesidades explícitas de los usuarios, al ser utilizado bajo condiciones específicas.
+            Debe cumplir con todos los criterios de aceptación, cubrir los escenarios de prueba y cumplir con los objetivos de negocio expresados en las diferentes Historias de Usuario </p>            
         <table class="table table-bordered">
         <thead>
             <tr>
             <th>Quality Gate</th>
             <th>Medición</th>
-            <th>Porcentaje de Peso</th>
             </tr>
         </thead>
         <tbody>
@@ -109,21 +54,11 @@
             <tr>
             <td>El 100 % de los criterios de aceptación expresados en todas HU deben estar cumpliendose antes de ser desplegado a un ambiente productivo</td>
             <td>(Cantidad de criterios de aceptacion aprobados / Criterios totales) * 100</td>
-            <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_CRITERIOS" class="form-control" id="PERCENT_QG_CRITERIOS" placeholder="%">
-                  </div>
-            </td>
             </tr>
 
             <tr>
             <td>El 100% de las API que se integren con otras aplicaciones deben estar registradas en un documento con su respectivo contrato, debe contener la descripción de los mensajes de respuesta ante los fallos y los escenarios posibles. Este documento debe estar actualizado durante todo el proceso de desarrollo</td>
             <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>
-            <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_ENDPOINTS" class="form-control" id="PERCENT_QG_ENDPOINTS" placeholder="%">
-                  </div>
-            </td>
             </tr>
         </tbody>    
         </table>
@@ -131,12 +66,12 @@
 
     <div class="container">
         <h2>Fiabilidad/confiabilidad:</h2>
+        <p>Es el riesgo de falla del software y la estabilidad de un programa cuando se expone a condiciones inesperadas</p>
         <table class="table table-bordered">
         <thead>
             <tr>
             <th>Quality Gate</th>
             <th>Medición</th>
-            <th>Porcentaje de Peso</th>
             </tr>
         </thead>
         <tbody>
@@ -144,78 +79,53 @@
             <tr>
             <td>El proyecto tiene descrito y graficado el proceso de soporte, este proceso debe tener; clasificación de incidentes, recurrencia de los incidentes, clasificación del impacto de los incidentes, descripción de garantías y niveles de servicio.</td>
             <td>Si existe grafico de proceso de soporte +1, Si existe la clasificación de los incidentes +1,Si existe la recurrencia de los incidentes +1, Si existe clasificación del impacto de los incidentes +1, Si existe la descripción de las garantias +1: ((Suma de los +1)/5)*100</td>        	
-            <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_SOPORTE" class="form-control" id="PERCENT_QG_SOPORTE" placeholder="%">
-                  </div>
-            </td>
-           </tr>
+            </tr>
         </table>
     </div>
 
 
     <div class="container">
         <h2>Mantenibilidad:</h2>
+        <p>La facilidad con la que se puede modificar el software, adaptarlo para otros fines o transferirlo de un equipo de desarrollo a otro.</p>            
         <table class="table table-bordered">
         </tbody>
         <thead>
              <tr>
              <th>Quality Gate</th>
              <th>Medición</th>
-             <th>Porcentaje de Peso</th>
              </tr>
         </thead>
         <tbody>
 
              <tr>
              <td>La arquitectura de la aplicación tiene separación de capas, y de responsabilidades utilizando patrones de desarrollo.</td>
-             <td>Si  - 100% , No - 0%</td>        	
-             <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_CAPAZ" class="form-control" id="PERCENT_QG_CAPAZ" placeholder="%">
-                  </div>
-             </td>
+             <td>(Cantidad de criterios de aceptacion aprobados / Criterios totales) * 100</td>        	
              </tr>
              
              <tr>
+             <td>El 100% de las API que se integren con otras aplicaciones deben estar registradas en un documento con su respectivo contrato, debe contener la descripción de los mensajes de respuesta ante los fallos y los escenarios posibles. Este documento debe estar Máximo se permiten 1 issues/bugs de análisis de código estático Por cada 500 líneas de código.
+                actualizado durante todo el proceso de desarrollo</td>
+             <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>
+             </tr>
+
+             <tr>
              <td>Máximo se permite 1 code smells de análisis de código estático por cada 500 líneas</td>
-             <td>(1-(cantidad de code smells registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>
-             <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_ENDPOINTS" class="form-control" id="PERCENT_QG_ENDPOINTS" placeholder="%">
-                  </div>
-             </td>
+             <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>
              </tr>
 
              <tr>
-             <td>Máximo se permite 1 error de análisis de código estático por cada 500 líneas</td>
-             <td>(1-(cantidad de issues registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>
-             <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_ERRORES" class="form-control" id="PERCENT_QG_ERRORES" placeholder="%">
-                  </div>
-             </td>
-             </tr>
-
-
-             <tr>
-             <td>El % la cobertura de pruebas debe ser superior al 50%</td>
-             <td>1 - ((%de codigo duplicado registrado en sonar/100)*100 - 3% de holgura de error)/100</td>
-             <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_COBERTURA" class="form-control" id="PERCENT_QG_COBERTURA" placeholder="%">
-                  </div>
-             </td>
-             </tr>
-
-             <tr>
-             <td>El % de código duplicado debe estar por debajo del 3%</td>
+             <td>Máximo se permite 1 vulnerabilidad de análisis de código estático por cada 500 líneas.</td>
              <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>   
-             <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_DUPLICADO" class="form-control" id="PERCENT_QG_DUPLICADO" placeholder="%">
-                  </div>
-             </td>
+             </tr>
+
+             <tr>
+             <td>% la cobertura de pruebas debe ser superior al 50%</td>
+             <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>
+             </tr>
+
+             <tr>
+             <td>El % de código duplicado debe estar por debajo del 3%.</td>
+             <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>   
              </tr>
 
         </tbody>
@@ -224,25 +134,20 @@
     
     <div class="container">
         <h2>Rendimiento/Eficiencia:</h2>
+        <p>Se refiere al uso de recursos de una aplicación y cómo esto afecta su escalabilidad, satisfacción del cliente y tiempos de respuesta.</p>
         <table class="table table-bordered">
         <thead>
             <tr>
             <th>Quality Gate</th>
             <th>Medición</th>
-            <th>Porcentaje de Peso</th>
             </tr>
         </thead>
-        <tbody>          			           
+        <tbody>
+           			           
             <tr>
             <td> Las api deben responder en un tiempo promedio de respuesta igual o menor a 5 segundos c/u.</td>
-            <td>Api con tiempo promedio de respuesta <= 5 segundos = +1, Api con tiempo promedio de respuesta > 5 segundos = 0: ((Suma de los +1)/ # de Api) *100</td>         	
-            <td>
-                <div class="md-form form-group">
-                    <input type="number" name = "PERCENT_QG_DUPLICADO" class="form-control" id="PERCENT_QG_DUPLICADO" placeholder="%">
-                  </div>
-             </td> 
-           </tr>
-        </tbody>  
+            <td>Api con tiempo promedio de respuesta <= 1 segundos = +1, Api con tiempo promedio de respuesta > 5 segundos = 0: ((Suma de los +1)/ # de Api) *100</td>         	
+            </tr>
         </table>
     </div>
 
@@ -253,31 +158,12 @@
 
     <div class="container">
         <h2>Seguridad:</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                <th>Quality Gate</th>
-                <th>Medición</th>
-                <th>Porcentaje de Peso</th>
-                </tr>
-            </thead>
-            <tbody>                                     
-                <tr>
-                    <td>Máximo se permite 1 vulnerabilidad de análisis de código estático por cada 500 líneas.</td>
-                    <td>(1-(cantidad de vulnerabilidades registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>   
-                    <td>
-                       <div class="md-form form-group">
-                           <input type="number" name = "PERCENT_QG_VULNERABILIDADES" class="form-control" id="PERCENT_QG_VULNERABILIDADES" placeholder="%">
-                         </div>
-                    </td>
-                </tr>
-            <tbody>
-        </table>
+        <p> Evalúa qué tan bien una aplicación protege la información contra el riesgo de infracciones de software.</p>
     </div>
 
     <div class="container">
         <h2>Portabilidad:</h2>
-        <p>Se refiere exclusivamente a la propiedad que posee un software que le permite ser ejecutado en diferentes plataformas y/o sistemas operativos.</p>
+        <p> se refiere exclusivamente a la propiedad que posee un software que le permite ser ejecutado en diferentes plataformas y/o sistemas operativos.</p>
     </div>
     </body>
 </html>

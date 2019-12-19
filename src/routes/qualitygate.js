@@ -11,8 +11,17 @@ router.get('/',(req,res) => {
 
 router.post('/add',qualityController.save);  
 
+router.post('/addPercent',qualityController.addPercent);  
+
+
 router.get('/detail',(req,res) => {
     qualityController.detail(req,res).then(result => res.render('qualitygates_detail',{
+        data: result
+    }))    
+});
+
+router.get('/config',(req,res) => {
+    qualityController.config(req,res).then(result => res.render('qualitygates_config',{
         data: result
     }))    
 });

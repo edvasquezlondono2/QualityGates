@@ -34,6 +34,13 @@ controller.save = (req,res) => {
   qualityModel.saveqg(req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS)
 };
 
+controller.addPercent = (req,res) => {
+  console.log(req);
+  qualityModel.addPercent(req);
+  res.redirect('/config');
+ };
+
+
 controller.edit = (req,res) => {
   return qualityModel.edit(req,res);
 };
@@ -44,6 +51,10 @@ controller.update = (req,res) => {
 
 controller.detail = (req,res) => {
   return qualityModel.detail(req,res);
+};
+
+controller.config = (req,res) => {
+  return qualityModel.config(req,res);
 };
 
 
