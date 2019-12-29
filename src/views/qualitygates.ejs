@@ -12,7 +12,10 @@
                     <a class="nav-link" href="/detail">Conocer los Quality Gates</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/config">Configuración % Quality Gates</a>
+                    <a class="nav-link" href="/config">Configuración % Atributos de Calidad</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/configqg">Configuración % Quality Gates</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/">Administrar Quality Gates</a>
@@ -25,16 +28,17 @@
           </nav>
         <link rel="stylesheet" 
         href="https://bootswatch.com/4/materia/bootstrap.min.css">
+        
      </head>
     <body>
-    <h1 style="font-size:100%;">Los Quality Gates son puntos en el curso de un proyecto de desarrollo, en los que se toman decisiones sobre el lanzamiento del siguiente paso del proyecto en función de criterios de calidad claramente definidos.</h1>
 
                   
 <div class="container">
-    <h2>Atributos de calidad:</h2>
 <form action="/add" method="post" style="text-align:center">
        <div class="container">
-         <h2>Atributos de calidad:</h2>
+        <a style="color:white;">_____</a>
+         <h2>Datos de entrada Quality Gates</h2>
+         <a style="color:white;">_____</a>
             <table class="table table-bordered">
 
                 <thead>
@@ -105,7 +109,16 @@
                         </div>
                         </td>
                     </tr>
-                                    
+
+                    <tr>
+                        <td><h5># DE LINEAS DE CODIGO:</h5></td>    
+                        <td>
+                        <div class="md-form form-group">
+                            <input type="number" name="CANTIDAD_LINEAS_CODIGO" class="form-control" style="text-align:center" placeholder="#">
+                        </div>
+                        </td>
+                    </tr>
+
                     <tr>
                         <td><h5>% CODIGO DUPLICADO:</h5></td>  
                         <td>
@@ -139,6 +152,32 @@
                         </td>
                     </tr>
                     <tr>
+                        <td><h5>TIENE SEPARACIÓN DE CAPAS Y RESPONSABILIDADES:</h5></td>  
+                        <td>
+                        <div class="md-form form-group">
+                            <div class="radio">
+                                <label><input type="radio" name="RADIOCAPAS" checked>SI</label>
+                              </div>
+                              <div class="radio">
+                                <label><input type="radio" name="RADIOCAPAS">NO</label>
+                              </div>
+                         </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h5>EL PROCESO DE SOPORTE ESTÁ BN DOCUMENTADO:</h5></td>  
+                        <td>
+                        <div class="md-form form-group">
+                            <div class="radio">
+                                <label><input type="radio" name="RADIOSOPORTE" checked>SI</label>
+                              </div>
+                              <div class="radio">
+                                <label><input type="radio" name="RADIOSOPORTE">NO</label>
+                              </div>
+                         </div>
+                        </td>
+                    </tr>
+                    <tr>
                         <td><h5># VULNERABILIDADES:</h5></td>  
                         <td>
                         <div class="md-form form-group">
@@ -150,7 +189,7 @@
                         <td><h5># ENDPOINTS CON UN TIEMPO PROMEDIO DE RESPUESTA MENOR O IGUAL A 5 SEGUNDOS:</h5></td>  
                         <td>
                         <div class="md-form form-group">
-                            <input type="number" name="CANTIDAD_ENDPOINTS_TIEMPOSOK" class="form-control" style="text-align:center" placeholder="#">
+                            <input type="number" name="TIME" class="form-control" style="text-align:center" placeholder="#">
                         </div>
                         </td>
                     </tr>
@@ -198,8 +237,10 @@
                        <td><%=data[i].ERRORES%></td>
                        <td><%=data[i].CODESMELLS%></td>
                        <td><%=data[i].VULNERABILIDADES%></td>
-                       <td><%=data[i].CANTIDAD_ENDPOINTS_TIEMPOSOK%></td>
-                       <td> 
+                       <td><%=data[i].TIME%></td>
+                       <td>
+                        <a href="/resultqg/<%=data[i].ID%>" class="btn btn-info">Resultado QG</a>
+                        <a style="color:white;">_____</a> 
                         <a href="/update/<%=data[i].ID%>" class="btn btn-info">Actualizar</a>
                         <a style="color:white;">_____</a>
                         <a href="/delete/<%=data[i].ID%>" class="btn btn-danger">Eliminar</a>

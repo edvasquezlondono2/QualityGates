@@ -29,15 +29,47 @@ controller.save = (req,res) => {
   var CANTIDADCODESMELLS =(parseFloat(req.body.CODESMELLS));
   var QG_CODESMELLS=(1-(CANTIDADCODESMELLS-(CANTIDADLINEASCODIGO/500))*CANTIDADCODESMELLS*0,0001)*100
  
-  var NOMBREPROYECTO =(req.body.NOMBREPROYECTO); 
+  var NOMBREPROYECTO =(req.body.NOMBREPROYECTO);
+  
+  var COBERTURA =(req.body.COBERTURA);
+  var QG_COBERTURA =((COBERTURA+ 6)/100)*100;
 
-  qualityModel.saveqg(req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS)
+  var COD_DUPLICADO =(req.body.COD_DUPLICADO);
+  var QG_COD_DUPLICADO = 	 1 - (((COD_DUPLICADO/100)*100 - 3)/100)	;
+
+  var VULNERABILIDADES =(req.body.VULNERABILIDADES);
+  var QG_VULNERABILIDADES = 1 - (((VULNERABILIDADES/100)*100 - 3)/100)	;
+
+  if (req.body.RADIOCAPAS=='on')
+  {
+    QG_RADIOCAPAS=100;
+  }
+  else{
+    QG_RADIOCAPAS=0;
+  }
+
+  if (req.body.RADIOSOPORTE=='on')
+  {
+    QG_RADIOSOPORTE=100;
+  }
+  else{
+    QG_RADIOSOPORTE=0;
+  }
+
+  var QG_TIME =(parseFloat(req.body.TIME));
+  
+  qualityModel.saveqg(req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS,QG_RADIOCAPAS,QG_RADIOSOPORTE,QG_VULNERABILIDADES,QG_COBERTURA,QG_COD_DUPLICADO,QG_TIME);
+
 };
 
 controller.addPercent = (req,res) => {
-  console.log(req);
   qualityModel.addPercent(req);
   res.redirect('/config');
+ };
+
+controller.addPercentqg = (req,res) => {
+  qualityModel.addPercentqg(req);
+  res.redirect('/configqg');
  };
 
 
@@ -49,12 +81,19 @@ controller.update = (req,res) => {
   return qualityModel.update(req,res);
 };
 
+controller.resultqg = (req,res) => {
+  return qualityModel.resultqg(req,res);
+};
 controller.detail = (req,res) => {
   return qualityModel.detail(req,res);
 };
 
 controller.config = (req,res) => {
   return qualityModel.config(req,res);
+};
+
+controller.configqg = (req,res) => {
+   return qualityModel.configqg(req,res);
 };
 
 

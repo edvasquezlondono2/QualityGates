@@ -17,6 +17,11 @@ use crudnodejsmysql;
     VULNERABILIDADES VARCHAR(6)
      );*/
 
+Drop table crudnodejsmysql.qualitygates;
+Drop table crudnodejsmysql.qualitygatescalc;
+Drop table crudnodejsmysql.qualitygatespercent;
+Drop table crudnodejsmysql.qualitygatespercentqg;
+
 create table crudnodejsmysql.qualitygates(
     ID FLOAT(6),
     NOMBREPROYECTO VARCHAR(30),
@@ -29,6 +34,8 @@ create table crudnodejsmysql.qualitygates(
     COBERTURA FLOAT(6),
     ERRORES FLOAT(6),
     CODESMELLS FLOAT(6),
+    RADIOCAPAS VARCHAR(30),
+    RADIOSOPORTE VARCHAR(30),
     VULNERABILIDADES FLOAT(6),
     CANTIDAD_ENDPOINTS_TIEMPOSOK FLOAT(6)
      );
@@ -39,11 +46,17 @@ create table crudnodejsmysql.qualitygatescalc(
     QG_CRITERIOS FLOAT(6),
     QG_ENDPOINTS FLOAT(6),
     QG_ERRORES FLOAT(6),
-    QG_CODESMELLS FLOAT(6)
+    QG_CODESMELLS FLOAT(6),    
+    QG_RADIOCAPAS FLOAT(6),
+    QG_RADIOSOPORTE FLOAT(6),
+    QG_VULNERABILIDADES FLOAT(6),
+    QG_COBERTURA FLOAT(6),
+    QG_COD_DUPLICADO FLOAT(6)
      );
 
 
 create table crudnodejsmysql.qualitygatespercent(
+ID FLOAT(6),
 NOMBREPROYECTO VARCHAR (30),
 PERCENT_FUNCIONALIDAD FLOAT(6),
 PERCENT_CONFIABILIDAD FLOAT(6),
@@ -52,6 +65,22 @@ PERCENT_SEGURIDAD FLOAT(6),
 PERCENT_MANTENIBILIDAD FLOAT(6),
 PERCENT_PERFORMANCE FLOAT(6),
 PERCENT_PORTABILIDAD FLOAT(6)
+);
+
+create table crudnodejsmysql.qualitygatespercentqg(
+ID FLOAT(6),
+NOMBREPROYECTO VARCHAR (30),
+PERCENT_QG_CRITERIOS FLOAT (6),
+PERCENT_QG_ENDPOINTS FLOAT (6),
+PERCENT_QG_SOPORTE FLOAT (6),
+PERCENT_QG_CAPAS FLOAT (6),
+PERCENT_QG_SMELL FLOAT (6),
+PERCENT_QG_ERRORES FLOAT (6),
+PERCENT_QG_VULNERABILIDADES FLOAT (6),
+PERCENT_QG_COBERTURA FLOAT (6),
+PERCENT_QG_DUPLICADO FLOAT (6),
+PERCENT_TIME FLOAT (6),
+PERCENT_QG_VULNERABILIDADES FLOAT (6)
 );
 -- show tables--
 SHOW TABLES;

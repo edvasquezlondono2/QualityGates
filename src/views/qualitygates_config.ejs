@@ -12,7 +12,10 @@
                     <a class="nav-link" href="/detail">Conocer los Quality Gates</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/config">Configuración % Quality Gates</a>
+                    <a class="nav-link" href="/config">Configuración % Atributos de Calidad</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/configqg">Configuración % Quality Gates</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/">Administrar Quality Gates</a>
@@ -41,7 +44,7 @@
          </div>
                   
                 <div class="container">
-                    <h2>Atributos de calidad:</h2>
+                    <h2>Asignación de % atributos de calidad:</h2>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -119,192 +122,6 @@
                     <button type="submit" class="btn btn-info mb-2" style="text-align:center" >Guardar</button>  
                 </div>
     </form>
-            <div class="container">
-                <h2>Funcionalidad:</h2>
-                <table class="table table-bordered">
-                <thead>
-                    <tr>
-                    <th>Quality Gate</th>
-                    <th>Medición</th>
-                    <th>Porcentaje de Peso</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                    <td>El 100 % de los criterios de aceptación expresados en todas HU deben estar cumpliendose antes de ser desplegado a un ambiente productivo</td>
-                    <td>(Cantidad de criterios de aceptacion aprobados / Criterios totales) * 100</td>
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_CRITERIOS" class="form-control" id="PERCENT_QG_CRITERIOS" placeholder="%">
-                        </div>
-                    </td>
-                    </tr>
-
-                    <tr>
-                    <td>El 100% de las API que se integren con otras aplicaciones deben estar registradas en un documento con su respectivo contrato, debe contener la descripción de los mensajes de respuesta ante los fallos y los escenarios posibles. Este documento debe estar actualizado durante todo el proceso de desarrollo</td>
-                    <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_ENDPOINTS" class="form-control" id="PERCENT_QG_ENDPOINTS" placeholder="%">
-                        </div>
-                    </td>
-                    </tr>
-                </tbody>    
-                </table>
-            </div>
-
-            <div class="container">
-                <h2>Fiabilidad/confiabilidad:</h2>
-                <table class="table table-bordered">
-                <thead>
-                    <tr>
-                    <th>Quality Gate</th>
-                    <th>Medición</th>
-                    <th>Porcentaje de Peso</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <tr>
-                    <td>El proyecto tiene descrito y graficado el proceso de soporte, este proceso debe tener; clasificación de incidentes, recurrencia de los incidentes, clasificación del impacto de los incidentes, descripción de garantías y niveles de servicio.</td>
-                    <td>Si existe grafico de proceso de soporte +1, Si existe la clasificación de los incidentes +1,Si existe la recurrencia de los incidentes +1, Si existe clasificación del impacto de los incidentes +1, Si existe la descripción de las garantias +1: ((Suma de los +1)/5)*100</td>        	
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_SOPORTE" class="form-control" id="PERCENT_QG_SOPORTE" placeholder="%">
-                        </div>
-                    </td>
-                </tr>
-                </table>
-            </div>
-
-
-            <div class="container">
-                <h2>Mantenibilidad:</h2>
-                <table class="table table-bordered">
-                </tbody>
-                <thead>
-                    <tr>
-                    <th>Quality Gate</th>
-                    <th>Medición</th>
-                    <th>Porcentaje de Peso</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
-                    <td>La arquitectura de la aplicación tiene separación de capas, y de responsabilidades utilizando patrones de desarrollo.</td>
-                    <td>Si  - 100% , No - 0%</td>        	
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_CAPAZ" class="form-control" id="PERCENT_QG_CAPAZ" placeholder="%">
-                        </div>
-                    </td>
-                    </tr>
-                    
-                    <tr>
-                    <td>Máximo se permite 1 code smells de análisis de código estático por cada 500 líneas</td>
-                    <td>(1-(cantidad de code smells registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_ENDPOINTS" class="form-control" id="PERCENT_QG_ENDPOINTS" placeholder="%">
-                        </div>
-                    </td>
-                    </tr>
-
-                    <tr>
-                    <td>Máximo se permite 1 error de análisis de código estático por cada 500 líneas</td>
-                    <td>(1-(cantidad de issues registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_ERRORES" class="form-control" id="PERCENT_QG_ERRORES" placeholder="%">
-                        </div>
-                    </td>
-                    </tr>
-
-
-                    <tr>
-                    <td>El % la cobertura de pruebas debe ser superior al 50%</td>
-                    <td>1 - ((%de codigo duplicado registrado en sonar/100)*100 - 3% de holgura de error)/100</td>
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_COBERTURA" class="form-control" id="PERCENT_QG_COBERTURA" placeholder="%">
-                        </div>
-                    </td>
-                    </tr>
-
-                    <tr>
-                    <td>El % de código duplicado debe estar por debajo del 3%</td>
-                    <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>   
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_DUPLICADO" class="form-control" id="PERCENT_QG_DUPLICADO" placeholder="%">
-                        </div>
-                    </td>
-                    </tr>
-
-                </tbody>
-                </table>
-            </div>
-            
-            <div class="container">
-                <h2>Rendimiento/Eficiencia:</h2>
-                <table class="table table-bordered">
-                <thead>
-                    <tr>
-                    <th>Quality Gate</th>
-                    <th>Medición</th>
-                    <th>Porcentaje de Peso</th>
-                    </tr>
-                </thead>
-                <tbody>          			           
-                    <tr>
-                    <td> Las api deben responder en un tiempo promedio de respuesta igual o menor a 5 segundos c/u.</td>
-                    <td>Api con tiempo promedio de respuesta <= 5 segundos = +1, Api con tiempo promedio de respuesta > 5 segundos = 0: ((Suma de los +1)/ # de Api) *100</td>         	
-                    <td>
-                        <div class="md-form form-group">
-                            <input type="number" name = "PERCENT_QG_DUPLICADO" class="form-control" id="PERCENT_QG_DUPLICADO" placeholder="%">
-                        </div>
-                    </td> 
-                </tr>
-                </tbody>  
-                </table>
-            </div>
-
-            <div class="container">
-                <h2>Usabilidad:</h2>
-                <p>La Usabilidad es la medida de la calidad de la experiencia que tiene un usuario cuando interactúa con un producto o sistema.</p>
-            </div>
-
-            <div class="container">
-                <h2>Seguridad:</h2>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                        <th>Quality Gate</th>
-                        <th>Medición</th>
-                        <th>Porcentaje de Peso</th>
-                        </tr>
-                    </thead>
-                    <tbody>                                     
-                        <tr>
-                            <td>Máximo se permite 1 vulnerabilidad de análisis de código estático por cada 500 líneas.</td>
-                            <td>(1-(cantidad de vulnerabilidades registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>   
-                            <td>
-                            <div class="md-form form-group">
-                                <input type="number" name = "PERCENT_QG_VULNERABILIDADES" class="form-control" id="PERCENT_QG_VULNERABILIDADES" placeholder="%">
-                                </div>
-                            </td>
-                        </tr>
-                    <tbody>
-                </table>
-            </div>
-
-            <div class="container">
-                <h2>Portabilidad:</h2>
-                <p>Se refiere exclusivamente a la propiedad que posee un software que le permite ser ejecutado en diferentes plataformas y/o sistemas operativos.</p>
-            </div>
-
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                 <tr>
