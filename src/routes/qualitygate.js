@@ -60,4 +60,6 @@ router.post('/update/:ID',(req,res) => {
 router.post('/resultqg/:ID',(req,res) => {
     qualityController.resultqg(req,res).then(result => res.redirect('/resultqg'))
 });
+
+
 module.exports= router;

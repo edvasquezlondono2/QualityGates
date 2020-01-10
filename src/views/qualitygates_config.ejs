@@ -32,6 +32,7 @@
     <body>
 <!--Blue select-->
     <form action="/addPercent" method="post" style="text-align:center">
+        <input type="number" name = "ID" class="form-control" id="ID" placeholder="ID" style="text-align:center">
          <a style="color:white;">_____</a>
          <div class="md-form form-group" style="text-align:center">
             <select class="mdb-select validate md-form" style="text-align:center" name="NOMBREPROYECTO">
@@ -40,6 +41,7 @@
              <option value="Docuware">Docuware</option>
              <option value="Sigo">Sigo</option>
              <option value="Geo">Geo</option>
+             <option value="Novedades_CheckPoint">Novedades CheckPoint</option>
             </select>
          </div>
                   
@@ -160,6 +162,10 @@
                     <% } %>
                 </tbody>
             </table>
-
+            <form action="/configqg" method="get" style="text-align:center">
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-info mb-2" style="text-align:center" >Siguiente ></button>  
+                </div>
+            </form>
     </body>
 </html>
