@@ -39,6 +39,12 @@ router.get('/result',(req,res) => {
     }))    
 });
 
+router.get('/result2/:NOMBREPROYECTO',(req,res) => {
+    qualityController.results2(req,res).then(result => res.render('qualitygates_result2',{
+        data: result[0]
+    }))    
+});
+
 router.get('/update/:ID',(req,res) => {
     qualityController.edit(req,res).then(result => res.render('qualitygates_edit',{
         data: result[0]

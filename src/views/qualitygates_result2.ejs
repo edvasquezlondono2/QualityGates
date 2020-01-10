@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/detail">Conocer los Quality Gates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/config">Configuración % Atributos de Calidad</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/configqg">Configuración % Quality Gates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Administrar Quality Gates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/result">Resultados Quality Gates</a>
+                </li>
+              </div>
+            </div>      
+          </nav>
+        <link rel="stylesheet" 
+        href="https://bootswatch.com/4/materia/bootstrap.min.css">
+     </head>
+    <body>
+<!--Blue select-->
+    <form action="/addPercent" method="post" style="text-align:center">
+        <input type="number" name = "ID" class="form-control" id="ID" placeholder="ID" style="text-align:center">
+         <a style="color:white;">_____</a>
+         <div class="md-form form-group" style="text-align:center">
+            <select class="mdb-select validate md-form" style="text-align:center" name="NOMBREPROYECTO">
+             <option value="" >Selecciona el proyecto....</option>
+             <option value="Novedades">Novedades</option>
+             <option value="Docuware">Docuware</option>
+             <option value="Sigo">Sigo</option>
+             <option value="Geo">Geo</option>
+             <option value="Novedades_CheckPoint">Novedades CheckPoint</option>
+            </select>
+         </div>
+                  
+                <div class="container">
+                    <h2>Asignación de % atributos de calidad:</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Atributo</th>
+                            <th>Porcentaje asignado</th>
+                            <th>Porcentaje obtenido</th>                           
+                            </tr>
+                        </thead>
+                        <tbody>                                         
+                            <tr>
+                                <td><h5>FUNCIONALIDAD</h5></td>   
+                                <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_FUNCIONALIDAD" class="form-control" id="PERCENT_FUNCIONALIDAD" placeholder="%">
+                                </div>
+                                </td>
+                                <td><%=data.FUNCIONALIDAD%></td>
+                            </tr>
+                                                
+                            <tr>
+                                <td><h5>FIABILIDAD / CONFIABILIDAD</h5></td>   
+                                <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_CONFIABILIDAD" class="form-control" id="PERCENT_CONFIABILIDAD" placeholder="%">
+                                </div>
+                                </td>
+                                <td><%=data.CONFIABILIDAD%></td>
+                            </tr>
+
+                            <tr>
+                                <td><h5>USABILIDAD</h5></td>   
+                                <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_USABILIDAD" class="form-control" id="PERCENT_USABILIDAD" placeholder="%">
+                                </div>
+                                </td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td><h5>SEGURIDAD</h5></td>   
+                                <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_SEGURIDAD" class="form-control" id="PERCENT_SEGURIDAD" placeholder="%">
+                                </div>
+                                </td>
+                                <td><%=data.SEGURIDAD%></td>
+                            </tr>
+
+                            <tr>
+                                <td><h5>MANTENIBILIDAD</h5></td>   
+                                <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_MANTENIBILIDAD" class="form-control" id="PERCENT_MANTENIBILIDAD" placeholder="%">
+                                </div>
+                                </td>
+                                <td><%=data.MANTENIBILIDAD%></td>
+                            </tr>
+                                            
+                            <tr>
+                                <td><h5>RENDIMIENTO/EFICIENCIA</h5></td>    
+                                <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_PERFORMANCE" class="form-control" id="PERCENT_PERFORMANCE" placeholder="%">
+                                </div>
+                                </td>
+                                <td><%=data.PERFORMANCE%></td>
+                            </tr>
+                                            
+                            <tr>
+                                <td><h5>PORTABILIDAD</h5></td>  
+                                <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_PORTABILIDAD" class="form-control" id="PERCENT_PORTABILIDAD" placeholder="%">
+                                </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-info mb-2" style="text-align:center" >Guardar</button>  
+                </div>
+    </form>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th>% N°</th>
+                    <th>% NOMBRE DEL PROYECTO</th>
+                    <th>% FUNCIONALIDAD</th>
+                    <th>% FIABILIDAD</th>
+                    <th>% MANTENIBILIDAD</th>
+                    <th>% RENDIMIENTO</th>
+                    <th>% USABILIDAD</th>
+                    <th>% SEGURIDAD</th>
+                    <th>% PORTABILIDAD</th>
+                    <th>ACCIONES</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% if (data) { %>
+                    <% for (var i=0; i<data.length; i++) { %>
+                        <tr>
+                            <td><%=(i+1)%></td>
+                            <td><%=data[i].NOMBREPROYECTO%></td>
+                            <td><%=data[i].PERCENT_FUNCIONALIDAD%></td>
+                            <td><%=data[i].PERCENT_CONFIABILIDAD%></td>
+                            <td><%=data[i].PERCENT_MANTENIBILIDAD%></td>
+                            <td><%=data[i].PERCENT_PERFORMANCE%></td>
+                            <td><%=data[i].PERCENT_USABILIDAD%></td>
+                            <td><%=data[i].PERCENT_SEGURIDAD%></td>
+                            <td><%=data[i].PERCENT_PORTABILIDAD%></td>
+                            <td> 
+                                <a href="/update/<%=data[i].ID%>" class="btn btn-info">Actualizar</a>
+                                <a style="color:white;">_____</a>
+                                <a href="/delete/<%=data[i].ID%>" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                    <% } %>
+                </tbody>
+            </table>
+    </body>
+</html>

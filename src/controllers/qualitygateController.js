@@ -9,6 +9,16 @@ controller.list = (req,res) => {
 controller.results = (req,res) => {
     return qualityModel.results(req,res);
 };
+
+
+controller.results2 = (req,res) => {
+  return qualityModel.results2(req,res);
+};
+
+controller.edit = (req,res) => {
+  return qualityModel.edit(req,res);
+};
+
 controller.save = (req,res) => {
   qualityModel.save(req);
   res.redirect('/');
@@ -69,9 +79,7 @@ controller.addPercentqg = (req,res) => {
  };
 
 
-controller.edit = (req,res) => {
-  return qualityModel.edit(req,res);
-};
+
 
 controller.update = (req,res) => {
   return qualityModel.update(req,res);
