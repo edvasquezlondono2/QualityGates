@@ -6,6 +6,10 @@ controller.list = (req,res) => {
     return qualityModel.list(req,res);
 };
 
+controller.list2 = (req,res) => {
+  return qualityModel.list2(req,res);
+};
+
 controller.results = (req,res) => {
     return qualityModel.results(req,res);
 };
@@ -98,6 +102,10 @@ controller.config = (req,res) => {
 
 controller.configqg = (req,res) => {
    return qualityModel.configqg(req,res);
+};
+
+controller.configqg2 = (req,res) => {
+  return qualityModel.configqg2(req,res);
 };
 
 controller.delete = (req,res) => {

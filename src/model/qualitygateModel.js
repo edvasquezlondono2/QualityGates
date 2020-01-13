@@ -19,6 +19,7 @@ model.addPercent = (req) => {
 model.addPercentqg = (req) => {
   const data= req.body;
     req.getConnection((err,conn)=>{
+      console.log(data);
        conn.query('insert into qualitygatespercentqg set ?',[data],(err,rows)=>{
        });
    });
@@ -51,10 +52,10 @@ model.edit = (req,res) => {
 };
 
 model.results2 = (req,res) => {
-  const {NOMBREPROYECTO} = req.params
+  const {ID} = req.params
   return new Promise((resolve, reject) => {
     req.getConnection((err,conn)=>{
-      return conn.query('Select AA.ID,((AA.PERCENT_QG_CRITERIOS/100)*BB.QG_CRITERIOS) + ((AA.PERCENT_QG_ENDPOINTS/100)*BB.QG_ENDPOINTS) AS FUNCIONALIDAD,(AA.PERCENT_QG_SOPORTE/100)*BB.QG_RADIOSOPORTE AS CONFIABILIDAD,((AA.PERCENT_QG_CAPAS/100)*BB.QG_RADIOSOPORTE)+((AA.PERCENT_QG_SMELL/100)*BB.QG_CODESMELLS)+((AA.PERCENT_QG_ERRORES/100)*BB.QG_ERRORES) + ROUND(((AA.PERCENT_QG_COBERTURA/100)*BB.QG_COBERTURA)) +((AA.PERCENT_QG_DUPLICADO/100)*BB.QG_COD_DUPLICADO) AS MANTENIBILIDAD,(AA.PERCENT_TIME/100)*BB.QG_TIME AS PERFORMANCE,(AA.PERCENT_QG_VULNERABILIDADES/100)*BB.QG_VULNERABILIDADES AS VULNERABILIDADES,(AA.PERCENT_QG_VULNERABILIDADES/100)*BB.QG_VULNERABILIDADES AS SEGURIDAD from qualitygatespercentqg as AA inner join qualitygatescalc as BB ON AA.ID=BB.ID where AA.NOMBREPROYECTO= ?',[NOMBREPROYECTO],(err,rows)=>{
+      return conn.query('Select CC.*,((AA.PERCENT_QG_CRITERIOS/100)*BB.QG_CRITERIOS) + ((AA.PERCENT_QG_ENDPOINTS/100)*BB.QG_ENDPOINTS) AS FUNCIONALIDAD,(AA.PERCENT_QG_SOPORTE/100)*BB.QG_RADIOSOPORTE AS CONFIABILIDAD,((AA.PERCENT_QG_CAPAS/100)*BB.QG_RADIOSOPORTE)+((AA.PERCENT_QG_SMELL/100)*BB.QG_CODESMELLS)+((AA.PERCENT_QG_ERRORES/100)*BB.QG_ERRORES) + ROUND(((AA.PERCENT_QG_COBERTURA/100)*BB.QG_COBERTURA)) +((AA.PERCENT_QG_DUPLICADO/100)*BB.QG_COD_DUPLICADO) AS MANTENIBILIDAD,(AA.PERCENT_TIME/100)*BB.QG_TIME AS PERFORMANCE,(AA.PERCENT_QG_VULNERABILIDADES/100)*BB.QG_VULNERABILIDADES AS VULNERABILIDADES,(AA.PERCENT_QG_VULNERABILIDADES/100)*BB.QG_VULNERABILIDADES AS SEGURIDAD from qualitygatespercentqg as AA inner join qualitygatescalc as BB ON AA.ID=BB.ID inner join qualitygatespercent as CC on AA.ID=CC.ID where AA.ID=?',[ID],(err,rows)=>{
            if (err){
               reject(err);
            }
@@ -94,10 +95,52 @@ model.update = (req,res) => {
   })
 };
 
+
+model.configqg = (req,res) => {
+  return new Promise((resolve, reject) => {
+    req.getConnection((err,conn)=>{
+      return conn.query('select * from qualitygatespercentqg',(err,rows)=>{
+           if (err){
+              reject(err);
+           }
+          resolve(rows);
+       });
+   });
+  })
+};
+
+model.configqg2 = (req,res) => {
+  const {ID} = req.params;
+  return new Promise((resolve, reject) => {
+    req.getConnection((err,conn)=>{
+      return conn.query('select * from qualitygatespercent where ID =?',[ID],(err,rows)=>{
+           if (err){
+              reject(err);
+           }
+          resolve(rows);
+       });
+   });
+  })
+};
+
 model.list = (req,res) => {
   return new Promise((resolve, reject) => {
     req.getConnection((err,conn)=>{
       return conn.query('select * from qualitygates',(err,rows)=>{
+           if (err){
+              reject(err);
+           }
+          resolve(rows);
+       });
+   });
+  })
+};
+
+model.list2 = (req,res) => {
+  const {ID} = req.params;
+  return new Promise((resolve, reject) => {
+    req.getConnection((err,conn)=>{
+      return conn.query('select * from qualitygatespercentqg where ID=?',[ID],(err,rows)=>{
            if (err){
               reject(err);
            }
@@ -120,18 +163,6 @@ model.config = (req,res) => {
   })
 };
 
-model.configqg = (req,res) => {
-  return new Promise((resolve, reject) => {
-    req.getConnection((err,conn)=>{
-      return conn.query('select * from qualitygatespercentqg',(err,rows)=>{
-           if (err){
-              reject(err);
-           }
-          resolve(rows);
-       });
-   });
-  })
-};
 
 model.results = (req,res) => {
   return new Promise((resolve, reject) => {

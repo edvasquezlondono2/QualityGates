@@ -32,8 +32,7 @@
     <body>
 <!--Blue select-->
     <form action="/addPercent" method="post" style="text-align:center">
-        <input type="number" name = "ID" class="form-control" id="ID" placeholder="ID" style="text-align:center">
-         <a style="color:white;">_____</a>
+         <br></br>
          <div class="md-form form-group" style="text-align:center">
             <select class="mdb-select validate md-form" style="text-align:center" name="NOMBREPROYECTO">
              <option value="" >Selecciona el proyecto....</option>
@@ -152,9 +151,11 @@
                             <td><%=data[i].PERCENT_USABILIDAD%></td>
                             <td><%=data[i].PERCENT_SEGURIDAD%></td>
                             <td><%=data[i].PERCENT_PORTABILIDAD%></td>
-                            <td> 
+                            <td>
+                                <a href="/configqg2/<%=data[i].ID%>" class="btn btn-info">Configurar QG</a>
+                                <br></br> 
                                 <a href="/update/<%=data[i].ID%>" class="btn btn-info">Actualizar</a>
-                                <a style="color:white;">_____</a>
+                                <br></br> 
                                 <a href="/delete/<%=data[i].ID%>" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>

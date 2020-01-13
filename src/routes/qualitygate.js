@@ -32,6 +32,17 @@ router.get('/configqg',(req,res) => {
         data: result
     }))    
 });
+router.get('/configqg2/:ID',(req,res) => {
+    qualityController.configqg2(req,res).then(result => res.render('qualitygates_configqg',{
+        data: result[0]
+    }))    
+});
+
+router.get('/:ID',(req,res) => {
+    qualityController.list2(req,res).then(result => res.render('qualitygates',{
+        data: result[0]
+    }))    
+});
 
 router.get('/result',(req,res) => {
     qualityController.results(req,res).then(result => res.render('qualitygates_result',{
@@ -39,7 +50,7 @@ router.get('/result',(req,res) => {
     }))    
 });
 
-router.get('/result2/:NOMBREPROYECTO',(req,res) => {
+router.get('/result2/:ID',(req,res) => {
     qualityController.results2(req,res).then(result => res.render('qualitygates_result2',{
         data: result[0]
     }))    

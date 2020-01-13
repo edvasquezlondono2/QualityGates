@@ -30,21 +30,12 @@
         href="https://bootswatch.com/4/materia/bootstrap.min.css">
      </head>
     <body>
-    <form action="/addPercentqg" method="post" style="text-align:center">
-        <input type="number" name = "ID" class="form-control" id="ID" placeholder="ID" style="text-align:center">
-        <td><h5>NOMBRE DEL PROYECTO:</h5></td>
-        <td>
-            <div class="md-form form-group" style="text-align:center">
-                <select class="mdb-select validate md-form" style="text-align:center" name="NOMBREPROYECTO">
-                <option value="" >Selecciona el proyecto....</option>
-                <option value="Novedades">Novedades</option>
-                <option value="Docuware">Docuware</option>
-                <option value="Sigo">Sigo</option>
-                <option value="Geo">Geo</option>
-                <option value="Novedades_CheckPoint">Novedades CheckPoint</option>
-                </select>
-            </div>
-        </td>
+    <form action="/addPercentqg" method="post" style="text-align:center">   
+        <input type="hidden" name = "ID" class="form-control" id="ID" placeholder="ID" style="text-align:center" value=<%=data.ID%>>
+        <br></br>
+         <h5>NOMBRE PROYECTO:</h5>
+         <input type="text" name = "NOMBREPROYECTO" class="form-control" id="NOMBREPROYECTO" placeholder="NOMBREPROYECTO" style="text-align:center" value=<%=data.NOMBREPROYECTO%>>                 
+
             <div class="container">
                 <h2>Funcionalidad:</h2>
                 <table class="table table-bordered">
@@ -270,8 +261,10 @@
                             <td><%=data[i].PERCENT_QG_TIME%></td>
                           
                             <td> 
+                                <a href="/<%=data[i].ID%>" class="btn btn-info">Diligenciar Estado del proyecto</a>
+                                <br></br>
                                 <a href="/update/<%=data[i].ID%>" class="btn btn-info">Actualizar</a>
-                                <a style="color:white;">_____</a>
+                                <br></br>
                                 <a href="/delete/<%=data[i].ID%>" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>

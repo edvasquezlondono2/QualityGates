@@ -30,14 +30,13 @@
         href="https://bootswatch.com/4/materia/bootstrap.min.css">
      </head>
     <body>
+    <br></br>
+        <h5 style="text-align:center">ID:</h5>
+        <input type="number" name = "ID" class="form-control" id="ID" placeholder="ID" style="text-align:center" value=<%=data.ID%>>
+        <br></br>
+         <h5 style="text-align:center">NOMBRE PROYECTO:</h5>
+         <input type="text" name = "NOMBREPROYECTO" class="form-control" id="NOMBREPROYECTO" placeholder="NOMBREPROYECTO" style="text-align:center" value=<%=data.NOMBREPROYECTO%>>                 
 
-        <a style="color:white;">_____</a>
-         <td><h5>NOMBRE DEL PROYECTO:</h5></td>   
-        <td>
-            <div class="md-form form-group" style="text-align:center">
-                <input type="text" name = "NOMBREPROYECTO" class="form-control" id="NOMBREPROYECTO" placeholder="%" value="<%=data.NOMBREPROYECTO%>" style="text-align:center">
-            </div>
-        </td>
             <div class="container">
                 <h2>Funcionalidad:</h2>
                 <table class="table table-bordered">
@@ -52,8 +51,8 @@
                 <tbody>
                     
                     <tr>
-                    <td>El 100 % de los criterios de aceptación expresados en todas HU deben estar cumpliendose antes de ser desplegado a un ambiente productivo</td>
-                    <td>(Cantidad de criterios de aceptacion aprobados / Criterios totales) * 100</td>
+                    <td>El 100 % de las HU son  aprobadas antes de desplegadar a un ambiente productivo</td>
+                    <td>(Cantidad de HU aprobadas / HU totales) * 100</td>
                     <td>
                         <div class="md-form form-group">
                             <input type="number" name = "PERCENT_QG_CRITERIOS" class="form-control" id="PERCENT_QG_CRITERIOS" placeholder="%" value="<%=data.PERCENT_QG_CRITERIOS%>">
@@ -91,7 +90,7 @@
                     
                     <tr>
                     <td>El proyecto tiene descrito y graficado el proceso de soporte, este proceso debe tener; clasificación de incidentes, recurrencia de los incidentes, clasificación del impacto de los incidentes, descripción de garantías y niveles de servicio.</td>
-                    <td>Si existe grafico de proceso de soporte , Si existe la clasificación de los incidentes ,Si existe la recurrencia de los incidentes , Si existe clasificación del impacto de los incidentes +1, Si existe la descripción de las garantias - 100% sino 0%</td>        	
+                    <td>Si - 100% , No - 0%</td>        	
                     <td>
                         <div class="md-form form-group">
                             <input type="number" name = "PERCENT_QG_SOPORTE" class="form-control" id="PERCENT_QG_SOPORTE" placeholder="%" value="<%=data.PERCENT_QG_SOPORTE%>">
@@ -191,7 +190,7 @@
                 <tbody>          			           
                     <tr>
                     <td> Las api deben responder en un tiempo promedio de respuesta igual o menor a 5 segundos c/u.</td>
-                    <td>Api con tiempo promedio de respuesta <= 5 segundos = +1, Api con tiempo promedio de respuesta > 5 segundos = 0: ((Suma de los +1)/ # de Api) *100</td>         	
+                    <td>(Cantidad de Apis con Tiempo aceptable/Cantidad de Apis Totales) *100</td>         	
                     <td>
                         <div class="md-form form-group">
                             <input type="number" name = "PERCENT_TIME" class="form-control" id="PERCENT_TIME" placeholder="%" value="<%=data.PERCENT_TIME%>">
@@ -240,7 +239,7 @@
 
             </div>
             <div style="text-align:center">
-             <a href="/result2/<%=data.NOMBREPROYECTO%>" class="btn btn-info">Siguiente ></a>
+             <a href="/result2/<%=data.ID%>" class="btn btn-info">Siguiente ></a>
             </div>
 
 
