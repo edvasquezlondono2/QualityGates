@@ -81,6 +81,12 @@
             <td>El proyecto tiene descrito y graficado el proceso de soporte, este proceso debe tener; clasificación de incidentes, recurrencia de los incidentes, clasificación del impacto de los incidentes, descripción de garantías y niveles de servicio.</td>
             <td>Si - 100% , No - 0%</td>        	
             </tr>
+
+            <tr>
+            <td>Los componentes que son críticos dentro de la solución deben tener descrito cuál es el proceso o mecanismo que se optará en caso de que se llegue a presentar un cuello de botella.</td>
+            <td>Si - 100% , No - 0%</td>        	
+            </tr>
+
         </table>
     </div>
 
@@ -103,25 +109,20 @@
              <td>Si - 100% , No - 0%</td>        	
              </tr>          
 
-             <tr>
-                <td>Los componentes que son críticos dentro de la solución deben tener descrito cuál es el proceso o mecanismo que se optará en caso de que se llegue a presentar un cuello de botella.</td>
-                <td>Si - 100% , No - 0%</td>        	
-            </tr>
-
             <tr>
                 <td>El proceso de soporte definido para la aplicación debe ser conocido por el área de soporte de TI.</td>
                 <td>Si - 100% , No - 0%</td>        	
             </tr>
 
-             <tr>
-             <td>El 100% de las API deben estar registradas en un documento con su respectivo contrato, debe contener la descripción de los mensajes de respuesta ante los fallos y los escenarios posibles. Este documento debe estar actualizado durante todo el proceso de desarrollo. Generar diccionario detallado de los mensajes de error por cada estado.<a href= https://es.wikipedia.org/wiki/Anexo:C%C3%B3digos_de_estado_HTTP> Información</a></td>
-             <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>
-             </tr>
+            <tr>
+                <td>Máximo se permite 1 code smells de análisis de código estático por cada 500 líneas</td>
+                <td>(1-(cantidad de code smells registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>
+            </tr>
 
-             <tr>
-             <td>Máximo se permite 1 vulnerabilidad de análisis de código estático por cada 500 líneas. <a href= https://docs.sonarqube.org/latest/user-guide/issues/> Información</a></td>
-             <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>   
-             </tr>
+            <tr>
+                <td>Máximo se permite 1 error de análisis de código estático por cada 500 líneas</td>
+                <td>(1-(cantidad de issues registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>
+            </tr>
 
              <tr>
              <td>% la cobertura de pruebas debe ser superior al 50%. <a href= https://docs.sonarqube.org/latest/analysis/coverage/> Información</a></td>
@@ -173,21 +174,21 @@
             </thead>
             <tbody>
                 <tr>
-                <td>Máximo se permite 1 code smells de análisis de código estático por cada 500 líneas. <a href= https://www.sonarqube.org/> Información</a></td>
-                <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>
+                    <td>El estado de todos los puertos del servidor se debe encuentrar protegido.</td>
+                    <td>Si - 100% , No - 0%</td>
+                </tr>
+                <tr>
+                    <td>Proteger el servidor contra inyección SQL o NoSQL.</td>
+                    <td>Si - 100% , No - 0%</td>
+                </tr> 
+                <tr>
+                    <td>Restricción en la ejecución de métodos de acceso como son GET, POST,DELETE.</td>
+                    <td>Si - 100% , No - 0%</td>
                 </tr>                                    
                 <tr>
-                <td>El estado de todos los puertos del servidor se debe encuentrar protegido.</td>
-                <td>Si - 100% , No - 0%</td>         	
-                </tr>
-                <tr>
-                <td>Proteger el servidor contra inyección SQL o NoSQL.</td>
-                <td>Si - 100% , No - 0%</td>         	
-                </tr>
-                <tr>
-                <td>Restricción en la ejecución de métodos de acceso como son GET, POST,DELETE.</td>
-                <td>Si - 100% , No - 0%</td>         	
-                </tr>
+                    <td>Máximo se permite 1 vulnerabilidad de análisis de código estático por cada 500 líneas</td>
+                    <td>(1-(cantidad de vulnerabilidad registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de vulnerabilidad registrados en sonar*0,0001)*100</td>           
+        </tr>
             </tbody>
         </table>
     </div>

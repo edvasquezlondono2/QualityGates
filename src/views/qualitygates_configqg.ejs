@@ -46,9 +46,8 @@
                 <tbody>
                     
                     <tr>
-                    <td>El 100 % de los criterios de aceptación expresados en todas HU deben estar cumpliendose antes de ser desplegado a un ambiente productivo</td>
-                    <td>(Cantidad de criterios de aceptacion aprobados / Criterios totales) * 100</td>
-                    <td>
+                    <td>El 100 % de las HU son aprobadas antes de desplegadar a un ambiente productivo</td>
+                    <td>(Cantidad de HU aprobadas / HU totales) * 100</td>                    <td>
                         <div class="md-form form-group">
                             <input type="number" name = "PERCENT_QG_CRITERIOS" class="form-control" id="PERCENT_QG_CRITERIOS" placeholder="%">
                         </div>
@@ -82,13 +81,24 @@
                     
                     <tr>
                     <td>El proyecto tiene descrito y graficado el proceso de soporte, este proceso debe tener; clasificación de incidentes, recurrencia de los incidentes, clasificación del impacto de los incidentes, descripción de garantías y niveles de servicio.</td>
-                    <td>Si existe grafico de proceso de soporte , Si existe la clasificación de los incidentes +1,Si existe la recurrencia de los incidentes , Si existe clasificación del impacto de los incidentes +1, Si existe la descripción de las garantias - 100% sino 0%</td>        	
+                    <td>Si - 100% , No - 0%</td>        	
                     <td>
                         <div class="md-form form-group">
                             <input type="number" name = "PERCENT_QG_SOPORTE" class="form-control" id="PERCENT_QG_SOPORTE" placeholder="%">
                         </div>
                     </td>
-                </tr>
+                    </tr>
+
+                    <tr>
+                        <td>Los componentes que son críticos dentro de la solución deben tener descrito cuál es el proceso o mecanismo que se optará en caso de que se llegue a presentar un cuello de botella.</td>
+                        <td>Si  - 100% , No - 0%</td>        	
+                        <td>
+                            <div class="md-form form-group">
+                                <input type="number" name = "PERCENT_QG_SOPORTEDOC" class="form-control" id="PERCENT_QG_SOPORTEDOC" placeholder="%">
+                            </div>
+                        </td>
+                     </tr>
+
                 </table>
             </div>
 
@@ -115,7 +125,17 @@
                         </div>
                     </td>
                     </tr>
-                    
+ 
+                     <tr>
+                        <td>El proceso de soporte definido para la aplicación debe ser conocido por el área de soporte de TI.</td>
+                        <td>Si  - 100% , No - 0%</td>        	
+                        <td>
+                            <div class="md-form form-group">
+                                <input type="number" name = "PERCENT_QG_SOPORTETI" class="form-control" id="PERCENT_QG_SOPORTETI" placeholder="%">
+                            </div>
+                        </td>
+                     </tr>
+
                     <tr>
                     <td>Máximo se permite 1 code smells de análisis de código estático por cada 500 líneas</td>
                     <td>(1-(cantidad de code smells registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>
@@ -264,6 +284,11 @@
                     <th>% Q8</th>
                     <th>% Q9</th>
                     <th>% Q10</th>
+                    <th>% Q11</th>
+                    <th>% Q12</th>
+                    <th>% Q13</th>
+                    <th>% Q14</th>
+                    <th>% Q15</th>
                     <th>ACCIONES</th>
                 </tr>
                 </thead>
@@ -276,13 +301,18 @@
                             <td><%=data[i].PERCENT_QG_CRITERIOS%></td>
                             <td><%=data[i].PERCENT_QG_ENDPOINTS%></td>
                             <td><%=data[i].PERCENT_QG_SOPORTE%></td>
-                            <td><%=data[i].PERCENT_QG_CAPAZ%></td>
+                            <td><%=data[i].PERCENT_QG_CAPAS%></td>
+                            <td><%=data[i].PERCENT_QG_SOPORTEDOC%></td>
+                            <td><%=data[i].PERCENT_QG_SOPORTETI%></td>
                             <td><%=data[i].PERCENT_QG_SMELL%></td>
                             <td><%=data[i].PERCENT_QG_ERRORES%></td>
-                            <td><%=data[i].PERCENT_QG_VULNERABILIDADES%></td>  
                             <td><%=data[i].PERCENT_QG_COBERTURA%></td>
                             <td><%=data[i].PERCENT_QG_DUPLICADO%></td>
-                            <td><%=data[i].PERCENT_QG_TIME%></td>
+                            <td><%=data[i].PERCENT_TIME%></td>
+                            <td><%=data[i].PERCENT_QG_PORT%></td>
+                            <td><%=data[i].PERCENT_QG_SQL%></td>
+                            <td><%=data[i].PERCENT_QG_METODOS%></td>      
+                            <td><%=data[i].PERCENT_QG_VULNERABILIDADES%></td>      
                           
                             <td> 
                                 <a href="/<%=data[i].ID%>" class="btn btn-info">Diligenciar Estado del proyecto</a>

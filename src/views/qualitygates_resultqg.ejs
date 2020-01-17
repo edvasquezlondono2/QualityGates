@@ -47,7 +47,7 @@
                 <tbody>
                     
                     <tr>
-                    <td>El 100 % de las HU son  aprobadas antes de desplegadar a un ambiente productivo</td>
+                    <td>El 100 % de las HU son aprobadas antes de desplegadar a un ambiente productivo</td>
                     <td>(Cantidad de HU aprobadas / HU totales) * 100</td>
                     <td>
                         <div class="md-form form-group">
@@ -94,6 +94,17 @@
                     </td>
                     <td><%=data.QG_RADIOSOPORTE%></td>
                     </tr>
+
+                    <tr>
+                        <td>Los componentes que son críticos dentro de la solución deben tener descrito cuál es el proceso o mecanismo que se optará en caso de que se llegue a presentar un cuello de botella.</td>
+                        <td>Si  - 100% , No - 0%</td>        	
+                        <td>
+                            <div class="md-form form-group">
+                                <input type="number" name = "PERCENT_QG_SOPORTEDOC" class="form-control" id="PERCENT_QG_SOPORTEDOC" placeholder="%" value="<%=data.PERCENT_QG_SOPORTEDOC%>">
+                            </div>
+                        </td>
+                        <td><%=data.QG_SOPORTEDOC%></td>
+                     </tr>
                 </table>
             </div>
 
@@ -122,6 +133,17 @@
                         </td>
                         <td><%=data.QG_RADIOCAPAS%></td>                       
                     </tr>
+
+                    <tr>
+                        <td>El proceso de soporte definido para la aplicación debe ser conocido por el área de soporte de TI.</td>
+                        <td>Si  - 100% , No - 0%</td>        	
+                        <td>
+                            <div class="md-form form-group">
+                                <input type="number" name = "PERCENT_QG_SOPORTETI" class="form-control" id="PERCENT_QG_SOPORTETI" placeholder="%" value="<%=data.PERCENT_QG_SOPORTETI%>">
+                            </div>
+                        </td>
+                        <td><%=data.QG_SOPORTETI%></td>
+                     </tr>
                     
                     <tr>
                     <td>Máximo se permite 1 code smells de análisis de código estático por cada 500 líneas</td>
@@ -214,7 +236,39 @@
                         <th>Porcentaje de Peso Obtenido</th>
                         </tr>
                     </thead>
-                    <tbody>                                     
+                    <tbody>
+                        <tr>
+                            <td>El estado de todos los puertos del servidor se debe encuentrar protegido.</td>
+                            <td>Si - 100% , No - 0%</td>
+                            <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_QG_PORT" class="form-control" id="PERCENT_QG_PORT" placeholder="%" value="<%=data.PERCENT_QG_PORT%>">
+                                </div>
+                            </td>
+                            <td><%=data.QG_RADIOPORT%></td>     	
+                        </tr>
+                        <tr>
+                            <td>Proteger el servidor contra inyección SQL o NoSQL.</td>
+                            <td>Si - 100% , No - 0%</td>
+                            <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_QG_SQL" class="form-control" id="PERCENT_QG_SQL" placeholder="%" value="<%=data.PERCENT_QG_SQL%>">
+                                </div>
+                            </td>
+                            <td><%=data.QG_RADIOSQL%></td>    	
+                        </tr>
+                        <tr>
+                            <td>Restricción en la ejecución de métodos de acceso como son GET, POST,DELETE.</td>
+                            <td>Si - 100% , No - 0%</td>    
+                            <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_QG_METODOS" class="form-control" id="PERCENT_QG_METODOS" placeholder="%" value="<%=data.PERCENT_QG_METODOS%>">
+                                </div>
+                            </td>   
+                            <td><%=data.QG_RADIOMETODOS%></td>    	
+                        </tr>
+                        <tr>
+                                     
                         <tr>
                             <td>Máximo se permite 1 vulnerabilidad de análisis de código estático por cada 500 líneas.</td>
                             <td>(1-(cantidad de vulnerabilidades registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>   
@@ -237,9 +291,5 @@
             <div style="text-align:center">
              <a href="/result2/<%=data.ID%>" class="btn btn-info">Siguiente ></a>
             </div>
-
-
-    
-
     </body>
 </html>
