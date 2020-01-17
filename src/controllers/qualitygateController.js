@@ -26,6 +26,7 @@ controller.edit = (req,res) => {
 controller.save = (req,res) => {
   qualityModel.save(req);
   res.redirect('/');
+
   var CANTIDADCRITERIOS = (parseFloat(req.body.CANTIDAD_CRITERIOS));
   var CANTIDADCRITERIOSAPROBADOS = (parseFloat(req.body.CANTIDAD_CRITERIOS_APROBADOS));
   var QG_CRITERIOS=(CANTIDADCRITERIOSAPROBADOS/CANTIDADCRITERIOS)*100
@@ -66,10 +67,35 @@ controller.save = (req,res) => {
   else{
     QG_RADIOSOPORTE=0;
   }
+
+  if (req.body.RADIOMETODOS=='on')
+  {
+    QG_RADIOMETODOS=100;
+  }
+  else{
+    QG_RADIOMETODOS=0;
+  }
+
+  if (req.body.RADIOPORT=='on')
+  {
+    QG_RADIOPORT=100;
+  }
+  else{
+    QG_RADIOPORT=0;
+  }
+
+  if (req.body.RADIOSQL=='on')
+  {
+    QG_RADIOSQL=100;
+  }
+  else{
+   QG_RADIOSQL=0;
+  }
+
   QG_CRITERIOS=(CANTIDADCRITERIOSAPROBADOS/CANTIDADCRITERIOS)*100
   var QG_TIME =(parseFloat(req.body.TIME)/CANTIDADENDPOINTS)*100;
   console.log(QG_TIME);
-  qualityModel.saveqg(req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS,QG_RADIOCAPAS,QG_RADIOSOPORTE,QG_VULNERABILIDADES,QG_COBERTURA,QG_COD_DUPLICADO,QG_TIME);
+  qualityModel.saveqg(req,NOMBREPROYECTO,QG_CRITERIOS,QG_ENDPOINTS,QG_ERRORES,QG_CODESMELLS,QG_RADIOCAPAS,QG_RADIOSOPORTE,QG_VULNERABILIDADES,QG_COBERTURA,QG_COD_DUPLICADO,QG_TIME,QG_RADIOMETODOS,QG_RADIOPORT,QG_RADIOSQL);
 };
 
 controller.addPercent = (req,res) => {

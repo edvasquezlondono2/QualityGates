@@ -56,7 +56,7 @@
                     </tr>
 
                     <tr>
-                    <td>El 100% de las API que se integren con otras aplicaciones deben estar registradas en un documento con su respectivo contrato, debe contener la descripción de los mensajes de respuesta ante los fallos y los escenarios posibles. Este documento debe estar actualizado durante todo el proceso de desarrollo</td>
+                    <td>El 100% de las API deben estar registradas en un documento con su respectivo contrato, debe contener la descripción de los mensajes de respuesta ante los fallos y los escenarios posibles. Este documento debe estar actualizado durante todo el proceso de desarrollo. Generar diccionario detallado de los mensajes de error por cada estado.</td>
                     <td>(Cantidad api(endpoints) integradas con otra aplicaciones y bien documentadas / total apis)*100</td>
                     <td>
                         <div class="md-form form-group">
@@ -173,8 +173,8 @@
                 </thead>
                 <tbody>          			           
                     <tr>
-                    <td> Las api deben responder en un tiempo promedio de respuesta igual o menor a 5 segundos c/u.</td>
-                    <td>Api con tiempo promedio de respuesta <= 5 segundos = +1, Api con tiempo promedio de respuesta > 5 segundos = 0: ((Suma de los +1)/ # de Api) *100</td>         	
+                    <td>Las api deben responder en un tiempo promedio de respuesta igual o menor a 2 segundos c/u.</td>
+                    <td>(Cantidad de Apis con Tiempo aceptable/Cantidad de Apis Totales) *100</td>         	
                     <td>
                         <div class="md-form form-group">
                             <input type="number" name = "PERCENT_TIME" class="form-control" id="PERCENT_TIME" placeholder="%">
@@ -200,15 +200,42 @@
                         <th>Porcentaje de Peso</th>
                         </tr>
                     </thead>
-                    <tbody>                                     
+                    <tbody>                                                                        
                         <tr>
-                            <td>Máximo se permite 1 vulnerabilidad de análisis de código estático por cada 500 líneas.</td>
-                            <td>(1-(cantidad de vulnerabilidades registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de issues registrados en sonar*0,0001)*100</td>   
+                            <td>El estado de todos los puertos del servidor se debe encuentrar protegido.</td>
+                            <td>Si - 100% , No - 0%</td>
                             <td>
-                            <div class="md-form form-group">
-                                <input type="number" name = "PERCENT_QG_VULNERABILIDADES" class="form-control" id="PERCENT_QG_VULNERABILIDADES" placeholder="%">
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_QG_PORT" class="form-control" id="PERCENT_QG_PORT" placeholder="%">
                                 </div>
-                            </td>
+                            </td>       	
+                        </tr>
+                        <tr>
+                            <td>Proteger el servidor contra inyección SQL o NoSQL.</td>
+                            <td>Si - 100% , No - 0%</td>
+                            <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_QG_SQL" class="form-control" id="PERCENT_QG_SQL" placeholder="%">
+                                </div>
+                            </td>       	
+                        </tr>
+                        <tr>
+                            <td>Restricción en la ejecución de métodos de acceso como son GET, POST,DELETE.</td>
+                            <td>Si - 100% , No - 0%</td>    
+                            <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_QG_METODOS" class="form-control" id="PERCENT_QG_METODOS" placeholder="%">
+                                </div>
+                            </td>       	
+                        </tr>
+                        <tr>
+                            <td>Máximo se permite 1 vulnerabilidad de análisis de código estático por cada 500 líneas</td>
+                            <td>(1-(cantidad de vulnerabilidad registrados en sonar-(cantidad de lineas de codigo/500))*cantidad de vulnerabilidad registrados en sonar*0,0001)*100</td>           
+                            <td>
+                                <div class="md-form form-group">
+                                    <input type="number" name = "PERCENT_QG_VULNERABILIDADES" class="form-control" id="PERCENT_QG_VULNERABILIDADES" placeholder="%">
+                                </div>
+                            </td>       	
                         </tr>
                     <tbody>
                 </table>
